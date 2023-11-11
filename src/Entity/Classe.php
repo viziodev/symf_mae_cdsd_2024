@@ -19,7 +19,7 @@ class Classe
     private ?string $nomClasse = null;
 
     #[ORM\Column]
-    private ?bool $isArchived = null;
+    private ?bool $isArchived = false;
 
     #[ORM\ManyToOne(inversedBy: 'classes')]
     #[ORM\JoinColumn(nullable: false)]
@@ -29,7 +29,7 @@ class Classe
     #[ORM\JoinColumn(nullable: false)]
     private ?Niveau $niveau = null;
 
-    #[ORM\ManyToMany(targetEntity: Module::class, mappedBy: 'classes')]
+    #[ORM\ManyToMany(targetEntity: Module::class, mappedBy: 'classes',cascade:["persist"])]
     private Collection $modules;
 
     public function __construct()

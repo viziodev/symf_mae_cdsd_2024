@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Classe{% endblock %}
+{% block stylesheets %}
+{{parent()}}
+  <style type="text/css">
+  #classe_modules{
+     display: flex;
+      justify-content: space-around;
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+                     <div class="col-lg-12">
+                            <div class="card easion-card">
+                                <div class="card-header">
+                                    <div class="easion-card-icon">
+                                        <i class="fas fa-table"></i>
+                                    </div>
+                                    <div class="easion-card-title">Nouvelle Classe</div>
+                                </div>
+                                <div class="card-body ">
+                                     {{form_start(form)}}
+                                     {{form_row(form.nomClasse)}}
+                                     {{form_row(form.niveau)}}
+                                    {{form_row(form.filiere)}}
+                                     {{form_row(form.modules)}}  
+                                    
+                                    {{form_row(form.isArchived)}}
+                                    {{form_end(form)}}
+                              </div>
+                            </div>
+                  </div>
+
+
+   
+
+{% endblock %}
+

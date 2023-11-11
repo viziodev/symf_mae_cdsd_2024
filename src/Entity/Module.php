@@ -18,7 +18,7 @@ class Module
     #[ORM\Column(length: 20)]
     private ?string $libelle = null;
 
-    #[ORM\ManyToMany(targetEntity: Classe::class, inversedBy: 'modules')]
+    #[ORM\ManyToMany(targetEntity: Classe::class, inversedBy: 'modules',cascade:["persist"]),]
     private Collection $classes;
 
     public function __construct()
@@ -65,5 +65,10 @@ class Module
         $this->classes->removeElement($class);
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->libelle;
     }
 }
